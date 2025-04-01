@@ -1,0 +1,199 @@
+/* Base styles */
+body {
+    --primary: #00ffff; /* Neon cyan */
+    --secondary: #ff00ff; /* Neon magenta */
+    --terminal-bg: rgba(0, 0, 0, 0.7);
+    --terminal-border: 1px solid var(--primary);
+    color: var(--primary); /* Default text color */
+}
+
+/* Ensure all text elements are visible */
+h1, h2, h3, h4, h5, h6,
+p, span, li, label, a {
+    color: var(--primary) !important;
+}
+
+/* Form elements */
+input, select, textarea {
+    color: var(--primary) !important;
+    caret-color: var(--primary);
+}
+
+/* Placeholder text */
+::placeholder {
+    color: rgba(0, 255, 255, 0.5) !important;
+    opacity: 1;
+}
+
+/* Typography */
+.neon-text {
+    color: var(--primary);
+    text-shadow: 0 0 5px var(--primary), 
+                 0 0 10px var(--primary),
+                 0 0 20px var(--secondary);
+    animation: neon-pulse 2s infinite alternate;
+}
+
+/* Terminal elements */
+.terminal {
+    background: var(--terminal-bg);
+    border: var(--terminal-border);
+    box-shadow: 0 0 15px var(--primary);
+}
+
+.bg-terminal {
+    background: rgba(0, 20, 20, 0.5);
+}
+
+/* User dashboard specific styles */
+.subject-card,
+.assignment-due,
+.assignment-completed {
+    background: rgba(0, 10, 10, 0.7) !important;
+    border: 1px solid var(--primary) !important;
+    color: var(--primary) !important;
+}
+
+.subject-card h3,
+.assignment-due h4 {
+    color: var(--primary) !important;
+}
+
+.subject-card p,
+.assignment-due p {
+    color: rgba(0, 255, 255, 0.7) !important;
+}
+
+.subject-card button,
+.assignment-due button {
+    color: var(--primary) !important;
+}
+
+.subject-card:hover,
+.assignment-due:hover {
+    box-shadow: 0 0 10px var(--primary) !important;
+    transform: translateY(-2px) !important;
+}
+
+#user-announcements li {
+    background: rgba(0, 10, 10, 0.7) !important;
+    border: 1px solid var(--primary) !important;
+}
+
+#user-announcements li p {
+    color: var(--primary) !important;
+}
+
+#user-announcements li .text-gray-500 {
+    color: rgba(0, 255, 255, 0.5) !important;
+}
+
+/* Buttons */
+.btn-hacker {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    color: black;
+    font-weight: bold;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-hacker:hover {
+    box-shadow: 0 0 15px var(--primary);
+    transform: translateY(-2px);
+}
+
+.glow {
+    animation: glow-pulse 1.5s infinite alternate;
+}
+
+/* Particles */
+.particle {
+    position: fixed;
+    width: 5px;
+    height: 5px;
+    background: var(--primary);
+    border-radius: 50%;
+    opacity: 0.7;
+    z-index: -1;
+}
+
+#particle1 {
+    top: 20%;
+    left: 10%;
+    animation: float 15s infinite linear;
+}
+
+#particle2 {
+    top: 60%;
+    left: 80%;
+    animation: float 20s infinite linear reverse;
+}
+
+#particle3 {
+    top: 40%;
+    left: 50%;
+    animation: float 25s infinite linear;
+}
+
+/* Animations */
+@keyframes neon-pulse {
+    from {
+        text-shadow: 0 0 5px var(--primary);
+    }
+    to {
+        text-shadow: 0 0 10px var(--primary), 
+                     0 0 20px var(--primary),
+                     0 0 30px var(--secondary);
+    }
+}
+
+@keyframes glow-pulse {
+    from {
+        box-shadow: 0 0 5px var(--primary);
+    }
+    to {
+        box-shadow: 0 0 20px var(--primary);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+    25% {
+        transform: translateY(-50px) translateX(20px);
+    }
+    50% {
+        transform: translateY(0) translateX(40px);
+    }
+    75% {
+        transform: translateY(50px) translateX(20px);
+    }
+    100% {
+        transform: translateY(0) translateX(0);
+    }
+}
+
+/* Typing animation */
+.typing-animation {
+    display: inline-block;
+    overflow: hidden;
+    border-right: 3px solid var(--primary);
+    white-space: nowrap;
+    animation: typing 3s steps(20, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--primary) }
+}
+
+/* Utility classes */
+.hidden {
+    display: none;
+}
